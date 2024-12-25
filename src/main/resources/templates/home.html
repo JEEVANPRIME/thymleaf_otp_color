@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="/home.css">
+</head>
+
+<body>
+
+	<div
+		style="display: flex; justify-content: space-between; align-items: center; width: 250px;">
+		<form action="otp">
+			<button>OTP</button>
+		</form>
+		<h3 th:if="${otp}" th:text="'the otp is :'+${otp}"></h3>
+	</div>
+
+	<h1 th:text="${@myClass.myMethod()}"></h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div
+		style="display: flex; justify-content: space-between; align-items: center; width: 450px;">
+		<form action="color">
+			color: <input type="text" name="color" value="${color}"><br><br> 
+			height: <input type="number" name="height" value="${height}"><br> <br> 
+			width: <input type="number" name="width" value="${width}"><br> <br>
+			<button>Show</button>
+		</form>
+		<div th:if="${color}"
+			th:style="'height:' + ${height} + 'px; width:' + ${width} + 'px; background-color:' + ${color} + '; border-radius: 50%;'">
+		</div>
+	</div>
+
+
+	<script th:if="${color}" th:inline="javascript">
+		alert([[${color}]]);
+	</script>
+</body>
+
+</html>
